@@ -1,0 +1,16 @@
+@mixin font-face($name, $path, $weight: null, $format: null) {
+    @font-face {
+        font-family: $name;
+        font-weight: $weight;
+        src: url($path) format(quote($format));
+    }
+}
+@include font-face('Pretendard', '../../fonts/Pretendard-Thin.woff2', 100, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-ExtraLight.woff2', 200, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-Light.woff2', 300, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-Regular.woff2', 400, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-Medium.woff2', 500, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-SemiBold.woff2', 600, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-Bold.woff2', 700, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-ExtraBold.woff2', 800, 'woff2');
+@include font-face('Pretendard', '../../fonts/Pretendard-Black.woff2', 900, 'woff2');

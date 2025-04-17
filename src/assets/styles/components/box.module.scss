@@ -1,0 +1,43 @@
+// Box.scss
+.box {
+    width: 100%;
+
+    // 배경색 
+    &--white {
+      background-color: #ffffff;
+      box-shadow: 10px 20ox 30px rgba(0,0,0,0.02);
+    }
+    &--gray {
+      background-color: #f8f9fa;
+    }
+    
+    // 패딩 
+    &--padding-none {
+      padding: 0;
+    }
+    &--padding-12 {
+      padding: 12px;
+      @media (max-width: 767px) {
+        padding: 3.2vw;
+      }
+    }
+    &--padding-medium {
+      padding: 20px;
+      @media (max-width: 767px) {
+        padding: 5.33vw;
+      }
+    }
+    &--padding-32 {
+      padding: 32px;
+      @media (max-width: 767px) {
+        padding: 8.53vw;
+      }
+    }
+    
+    // 테두리 반경 변형
+    &--radius-8 {border-radius: 8;}
+    &--radius-12 {border-radius: 12px;}
+    &--radius-16 {border-radius: 16px;}
+    &--radius-20 {border-radius: 20px;}
+    
+  }

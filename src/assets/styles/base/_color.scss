@@ -1,0 +1,23 @@
+/* color */
+:root {
+    --Primary-Fill-default: #2dbdb6;
+
+    --Primary-Fill-neutral-bg: #F4F6F8;
+    --Primary-Fill-neutral-dark: #EAECEF;
+    --Primary-Fill-neutral: rgba(244, 246, 248, 1);
+
+    --Neutral-Fill-alternative: rgba(112, 115, 124, 0.08);
+
+    --Neutral-Text-default: #171719;
+    --Neutral-Text-neutral: rgba(46, 47, 51, 0.88);
+    --Inverse-text-inverse: #989BA2;
+
+    --Status-Negative-Text-default: #E52222;
+    --Neutral-Text-alternative: rgba(55, 56, 60, 0.61);
+
+    --Neutral-Border-alternative: rgba(112, 115, 124, 0.16);
+    --Neutral-Border-Neutral: #EDEFF3;
+    --Neutral-Border-focus: #1A75FF;
+}
+
+.text-color__grey {color: var(--Neutral-Text-alternative);}

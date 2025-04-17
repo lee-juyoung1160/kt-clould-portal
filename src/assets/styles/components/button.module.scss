@@ -1,0 +1,116 @@
+// Button.module.scss
+
+// 버튼 기본 스타일
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+  
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+// 버튼 크기 변형
+.button--small {
+  height: 40px;
+  width: 80px;
+  font-size: 16px;
+}
+
+.button--medium {
+  width: calc(50% - 4px);
+  height: 40px;
+  font-size: 16px;
+}
+
+.button--large {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+// 버튼 변형 스타일
+.button--primary {
+  color: #fff;
+  background-color: #007bff;
+  
+  &:hover:not(:disabled) {
+    background-color: #0069d9;
+  }
+  
+  &:active:not(:disabled) {
+    background-color: #0062cc;
+  }
+}
+
+.button--secondary {
+  color: var(--Neutral-Text-default);
+  background-color: var(--Neutral-Fill-alternative);
+  
+  &:hover:not(:disabled) {
+    background-color: rgba(112, 115, 124, 0.2);
+  }
+  
+  &:active:not(:disabled) {
+    color: rgba(55, 56, 60, 0.35);
+    background-color: rgba(112, 115, 124, 0.12);
+  }
+}
+
+.button--outline {
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  
+  &:hover:not(:disabled) {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  &:active:not(:disabled) {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf;
+  }
+}
+
+.button--cancel {
+  color: var(--Neutral-Text-default);
+  background-color: #F6F8FC;
+  
+  &:hover:not(:disabled) {
+    background-color: #EBEEF5;
+  }
+  
+  &:active:not(:disabled) {
+    background-color: #EBEEF5;
+  }
+}
+
+.button--success {
+  color: #fff;
+  background-color: var(--Primary-Fill-default);
+  
+  &:hover:not(:disabled) {
+    background-color: #28908C;
+  }
+  
+  &:active:not(:disabled) {
+    color: rgba(55, 56, 60, 0.35);
+    background-color: #70737C;
+  }
+
+}

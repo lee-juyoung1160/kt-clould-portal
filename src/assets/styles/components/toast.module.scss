@@ -1,0 +1,49 @@
+/* toast.module.scss */
+
+.toastContainer {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid rgba(237, 239, 243, 1);
+  padding: 12px 16px;
+  border-radius: 1000px;
+  box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: rgba(46, 47, 51, 0.88);
+  
+  /* 초기 상태 (애니메이션 시작점) */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-out;
+}
+
+.toastShow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toastIcon {
+  width: 24px;
+  height: 24px;
+}
+
+// .toastMessage {
+//   flex-grow: 1;
+// }
+/* 토스트가 여러 개일 때 스택 효과 */
+.stackedToast {
+  margin-top: -5px;
+}

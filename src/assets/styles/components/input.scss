@@ -1,0 +1,91 @@
+// src/components/common/CustomInput.scss
+.input-wrap {
+  padding: 0 18px;
+}
+.input-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+  
+    .input-title {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--Neutral-Text-neutral);
+      font-weight: 500;
+    }
+  
+    .input {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  
+      .custom-input {
+        width: 100%;
+        padding: 9px 16px;
+        border: 1px solid var(--Neutral-Border-Neutral);
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--Neutral-Text-default);
+        background-color: #fff;
+        transition: border-color 0.2s ease;
+  
+        &:focus {
+          border-color: var(--Neutral-Border-focus);
+          outline: none;
+        }
+  
+        &::placeholder {
+          color: var(--Inverse-text-inverse);
+        }
+      }
+      &.input-with-action {
+        .custom-input {
+          width: calc(100% - 88px);
+        }
+      }
+  
+      .clear-btn,
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+  
+      .eyes-on-hidden,
+      .eyes-off-hidden {
+        display: none;
+      }
+    }
+  
+    .input-error-message {
+      display: flex;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--Status-Negative-Text-default);
+  
+      i {
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+      }
+  
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  footer p {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(46, 47, 51, 0.88);
+  }
