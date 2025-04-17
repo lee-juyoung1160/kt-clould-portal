@@ -15,6 +15,9 @@
     "sass": "^1.69.5",
     "web-vitals": "^2.1.4"
   },
+  "overrides": {
+    "node-sass": "npm:sass@^1.69.5"
+    },
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false react-scripts build",
