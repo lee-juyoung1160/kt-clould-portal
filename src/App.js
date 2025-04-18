@@ -8,7 +8,8 @@ import Login from "./pages/Login/Login.js";
 import Unlock from "./pages/Login/Unlock.js";
 import NoticeList from "./pages/Notice/NoticeList.js"
 import NoticeDetail from "./pages/Notice/NoticeDetail.js"
-import Guide from "./_guide.js";
+import GuideList from "./pages/Guide/GuideList.js";
+import GuideDetail from "./pages/Guide/GuideDetail.js";
 
 const App = () => {
     return (
@@ -24,7 +25,8 @@ const App = () => {
                 <Route path="/home" element={<Home />} />
                 <Route path="/notice" element={<NoticeList />} />
                 <Route path="/notice/detail/:id" element={<NoticeDetail />} />
-                <Route path="/guide" element={<Guide />} />
+                <Route path="/guide" element={<GuideList />} />
+                <Route path="/guide/detail/:id" element={<GuideDetail />} />
             </Routes>
             <Footer />
             </ToastProvider>

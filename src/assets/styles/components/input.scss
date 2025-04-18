@@ -33,7 +33,7 @@
         transition: border-color 0.2s ease;
   
         &:focus {
-          border-color: var(--Neutral-Border-focus);
+          border: 1px solid var(--Neutral-Border-focus);
           outline: none;
         }
   

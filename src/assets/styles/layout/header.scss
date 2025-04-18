@@ -1,18 +1,378 @@
-
-#header {
+/* 헤더 스타일 */
+header {
     position: relative;
-}
-
-#headerOnlyLogo{
+    
+    .container {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 22px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* 네비게이션 기본 스타일 */
+  nav {
+    display: block;
+    
+    .mo-btn-logout {
+      display: none;
+    }
+  }
+  
+  .main-menu {
+    display: flex;
+    
+    > li {
+      position: relative;
+      margin-right: 20px;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+      
+      > a {
+        margin-bottom: 8px;
+        padding: 6px 20px;
+        color: var(--Neutral-Text-neutral);
+        font-weight: 400;
+        line-height: 150%;
+        transition: all 0.3s;
+      }
+      
+      &.active > a {
+        color: var(--Neutral-Text-defalt);
+        font-weight: 500;
+      }
+      
+      &:hover > a {
+        background-color: rgba(23, 23, 25, 0.05);
+        border-radius: 100px;
+      }
+      
+      .toggle-open-icon {
+        display: none;
+        
+        &.active {
+          transform: rotate(-180deg);
+        }
+      }
+      
+      &:hover .sub-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .sub-menu {
     position: absolute;
-    top:0;
+    left: -25%;
+    margin-top: 8px;
+    background-color: #fff;
+    width: 200px;
+    padding: 20px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    border: 1px solid #EDEFF3;
+    border-radius: 12px;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.03);
+    z-index: 100;
+    
+    &.active {
+      max-height: 500px;
+      padding: 20px 0;
+      opacity: 1;
+      visibility: visible;
+      transition: max-height 0.25s, opacity 0.4s;
+    }
+    
+    li {
+      position: relative;
+      overflow: hidden;
+      
+      a {
+        display: block;
+        padding: 9px 23px;
+        font-size: 16px;
+        transition: all 0.3s;
+        position: relative;
+        z-index: 2;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background-color: rgba(23, 23, 25, 0.1); 
+          border-radius: 50%;  // 원형으로 설정
+          transform: translate(-50%, -50%);
+          transition: width 0.2s ease, height 0.2s ease;
+          z-index: -1;
+          pointer-events: none;
+          opacity: 0;  // 기본적으로 투명하게
+        }
+      }
+      
+      &.active a, 
+      &:hover a {
+        color: var(--Neutral-Text-defalt);
+        font-weight: 500;
+        background-color: rgba(23, 23, 25, 0.05);  // 배경색 설정
+      }
+    }
+  }
+  
+  // 클릭 애니메이션을 위한 JavaScript로 추가되는 클래스
+  .sub-menu li a.ripple-effect::before {
+    width: 250px;   // 충분히 큰 크기로 설정
+    height: 250px;  // 충분히 큰 크기로 설정
+    opacity: 1;     // 보이게 만들기
+    animation: rippleEffect 0.8s ease forwards;  // 애니메이션 적용
+  }
+  
+  // 리플 효과 애니메이션
+  @keyframes rippleEffect {
+    0% {
+      opacity: 1;
+      width: 0;
+      height: 0;
+    }
+    50% {
+      opacity: 0.6;
+      width: 250px;
+      height: 250px;
+    }
+    100% {
+      opacity: 0;
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  /* 프로필 - 로그아웃 */
+  .header-profile {
+    position: relative;
+    
+    .btn-profile {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .hover-content {
+      position: absolute;
+      width: 200px;
+      right: 0;
+      background-color: #fff;
+      padding: 20px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      border: 1px solid #EDEFF3;
+      border-radius: 12px;
+      box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.03);
+      z-index: 100;
+      
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 6px 20px;
+        color: var(--Neutral-Text-neutral);
+        font-weight: 400;
+        line-height: 150%;
+        transition: all 0.3s;
+      }
+    }
+    
+    &:hover .hover-content {
+      visibility: visible;
+      opacity: 1;
+      font-size: 16px;
+    }
+  }
+  
+  /* 햄버거 메뉴 버튼 */
+  .menu-toggle {
+    display: none;
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* 모바일 메뉴 오버레이 */
+  .overlay {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 72px;
-    padding: 0 52px;
-    line-height: 72px;
-    h1.logo {
-        width: 36px;
-        height: 36px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    display: none;
+    
+    &.active {
+      display: block;
     }
-}
+  }
+  
+  .mobile-menu-header {
+    display: none;
+  }
+  
+  .display-pc {
+    display: block !important;
+  }
+  
+  /* 탭 스타일 */
+  @media (max-width: 1079px) {
+    .display-pc {
+      display: none !important;
+    }
+    
+    .container {
+      padding: 15px 32px;
+    }
+    
+    .logo {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .menu-toggle {
+      display: block;
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 360px;
+      height: 100%;
+      background-color: #fff;
+      z-index: 99;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      
+      &.active {
+        right: 0;
+      }
+      
+      .mo-btn-logout {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 32px;
+        transform: translateX(-50%);
+        width: 115px;
+        height: 40px;
+        text-align: center;
+        color: var(--Neutral-Text-default);
+        background-color: #fff;
+        border: 1px solid #D7D8DA;
+      }
+    }
+    
+    .main-menu {
+      flex-direction: column;
+      padding-top: 60px;
+      
+      > li {
+        margin-right: 0;
+        margin-bottom: 8px;
+        
+        > a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 18px;
+          padding: 15px 20px;
+          margin-bottom: 0;
+        }
+        
+        .toggle-open-icon {
+          display: block;
+          width: 24px;
+          height: 24px;
+          transition: all .3s;
+        }
+        
+        &:hover > a {
+          background-color: transparent;
+          border-radius: 0;
+        }
+      }
+    }
+    
+    .sub-menu {
+        // 기존 모바일 스타일 유지
+        position: static;
+        left: initial;
+        width: 320px;
+        padding: 0;
+        margin: 0 auto;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        background-color: var(--Primary-Fill-neutral);
+        border: none;
+        
+        li a.ripple-effect::before {
+          width: 350px;  // 모바일에서는 더 넓게 설정
+          height: 350px;
+        }
+        
+        @keyframes rippleEffect {
+          0% {
+            opacity: 1;
+            width: 0;
+            height: 0;
+          }
+          50% {
+            opacity: 0.8;
+            width: 350px;
+            height: 350px;
+          }
+          100% {
+            opacity: 0;
+            width: 350px;
+            height: 350px;
+          }
+        }
+      }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 60px;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    
+    .close-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .header-profile {
+      display: none;
+    }
+  }
